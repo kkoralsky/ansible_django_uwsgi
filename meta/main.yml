@@ -1,0 +1,14 @@
+galaxy_info:
+  author: Karol Ossowski
+  description: Run Django app in uWsgi container using supervisor
+
+  min_ansible_version: 1.2
+
+  platforms:
+  - name: Debian
+    versions:
+    - all
+  galaxy_tags: [ django, uwsgi, debian, supervisor ]
+
+dependencies:
+  - role: django_supervisor
