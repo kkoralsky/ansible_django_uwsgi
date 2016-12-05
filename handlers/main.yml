@@ -1,6 +1,3 @@
 ---
 - name: reload uwsgi
   file: path="{{ uwsgi_ini_path }}" state=touch
-
-- name: reload supervisor
-  supervisorctl: name='{{ program_name }}' state=restarted
