@@ -2,9 +2,10 @@
 program_name: '{{ app }}_uwsgi'
 priority: 10
 
-wsgi_module: '{{ app_name }}.wsgi'
-
 uwsgi_ini_tpl: _default_uwsgi.ini.j2
+supervisor_conf_tpl: _default_supervisor.conf.j2
+
+wsgi_module: '{{ app_name }}.wsgi'
 
 uwsgi_host: 127.0.0.1
 uwsgi_port: 8000
