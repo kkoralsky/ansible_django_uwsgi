@@ -1,14 +1,21 @@
 ---
 - name: configure uwsgi
   template:
-    src: "{{ uwsgi_ini_tpl }}"
-    dest: "{{ uwsgi_ini_path }}" 
-  notify: reload uwsgi
+    src: '{{ uwgi_ini_tpl }}'
+    dest: '{{ uwsgi_ini_path }}'
 
 - name: configure supervisor
   template:
     src: '{{ supervisor_conf_tpl }}'
-    dest: '/etc/supervisor/conf.d/{{ program_name }}.conf'
-  notify: reload supervisor
+    dest: '{{ supervisor_config_dir }}/{{ program_name }}.conf'
+  notify: reload app
   become: true
   tags: superuser
+  when: supervisor_use_sudo
+
+- name: configure supervisor
+  template:
+    src: '{{ supervisor_conf_tpl }}'
+    dest: '{{ supervisor_config_dir }}/{{ program_name }}.conf'
+  notify: reload app
+  when: not supervisor_use_sudo
