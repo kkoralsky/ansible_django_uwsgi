@@ -1,7 +1,11 @@
 # reasonable uwsgi config for staging/development env.
 
 [uwsgi]
+{% if uwsgi_http %}
+http = {{ uwsgi_host }}:{{ uwsgi_port }}
+{% else %}
 socket = {{ uwsgi_host }}:{{ uwsgi_port }}
+{% endif %}
 uid = {{ user }}
 chdir = {{ app_path }}
 module = {{ wsgi_module }}
