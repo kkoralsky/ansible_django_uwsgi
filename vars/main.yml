@@ -1,2 +1,2 @@
 ---
-uwsgi_ini_path: '{{ app_base_path }}/uwsgi.ini'
+uwsgi_ini_path: '{{ app_base_path }}/{{ program_name }}.ini'
