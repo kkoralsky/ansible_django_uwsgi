@@ -1,7 +1,7 @@
 ---
 - name: configure uwsgi
   template:
-    src: '{{ uwgi_ini_tpl }}'
+    src: '{{ uwsgi_ini_tpl }}'
     dest: '{{ uwsgi_ini_path }}'
 
 - name: configure supervisor
