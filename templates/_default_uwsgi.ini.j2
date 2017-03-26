@@ -15,5 +15,7 @@ master = true
 processes = {{ uwsgi_procnum }}
 max-requests = {{ uwsgi_max_requests }}
 pythonpath = {{ venv_path }}/bin/python
+{% if uwsgi_touch_reload %}
 touch-reload = {{ uwsgi_ini_path }}
+{% endif %}
 env = DJANGO_SETTINGS_MODULE={{ django_settings_module }}

@@ -3,3 +3,4 @@
   file: path="{{ uwsgi_ini_path }}" state=touch
   listen: reload app
   tags: upgrade
+  when: uwsgi_touch_reload

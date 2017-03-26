@@ -21,6 +21,8 @@ Role Variables
 - `uwsgi_procnum` - default: 2
 - `uwsgi_max_requsts` - default: 100
 - `priority`  - priority to start the server; lower value means it'll start sooner and shutdown later; default: 10
+- `uwsgi_touch_reload` - touching generated uwsgi.ini file will trigger uwsgi reload
+  (off by default)
 
 Dependencies
 ------------

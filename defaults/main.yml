@@ -12,3 +12,5 @@ uwsgi_port: 8000
 uwsgi_procnum: 2
 uwsgi_max_requests: 100
 uwsgi_http: no
+
+uwsgi_touch_reload: false 
