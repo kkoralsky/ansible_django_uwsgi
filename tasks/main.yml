@@ -13,6 +13,7 @@
   tags: superuser
   when: supervisor_use_sudo
 
+
 - name: configure supervisor
   template:
     src: '{{ supervisor_conf_tpl }}'
