@@ -1,7 +1,7 @@
-Djanog uWsgi
+Django uWsgi
 ============
 
-Run Djano app in uWsgi container
+Run Django app in uWsgi container
 
 Requirements
 ------------
