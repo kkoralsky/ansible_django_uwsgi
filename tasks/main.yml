@@ -3,20 +3,24 @@
   template:
     src: '{{ uwsgi_ini_tpl }}'
     dest: '{{ uwsgi_ini_path }}'
+  notify: reload app
 
 - name: configure supervisor
   template:
     src: '{{ supervisor_conf_tpl }}'
     dest: '{{ supervisor_config_dir }}/{{ program_name }}.conf'
-  notify: reload app
+  notify:
+    - reload app
+    - reload supervisor config
   become: true
   tags: superuser
   when: supervisor_use_sudo
 
-
 - name: configure supervisor
   template:
     src: '{{ supervisor_conf_tpl }}'
     dest: '{{ supervisor_config_dir }}/{{ program_name }}.conf'
-  notify: reload app
+  notify:
+    - reload app
+    - reload supervisor config
   when: not supervisor_use_sudo
