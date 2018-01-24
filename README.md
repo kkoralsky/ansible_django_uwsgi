@@ -27,7 +27,7 @@ Role Variables
 Dependencies
 ------------
 
-- `xkoralsky.django_supervisor`
+- [django_supervisor](https://github.com/kkoralsky/ansible_django_supervisor)
 
 Example Playbook
 ----------------
