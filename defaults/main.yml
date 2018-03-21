@@ -4,6 +4,7 @@ priority: 10
 
 uwsgi_ini_tpl: _default_uwsgi.ini.j2
 supervisor_conf_tpl: _default_supervisor.conf.j2
+supervisor_stopsignal: INT
 
 wsgi_module: '{{ app_name }}.wsgi'
 
