@@ -9,6 +9,9 @@
   template:
     src: '{{ supervisor_conf_tpl }}'
     dest: '{{ supervisor_config_dir }}/{{ program_name }}.conf'
+    mode: '{{ supervisor_manage_mode }}'
+    owner: '{{ supervisor_manage_user }}'
+    group: '{{ supervisor_manage_group }}'
   notify: reload app
   become: true
   tags: superuser
@@ -18,5 +21,7 @@
   template:
     src: '{{ supervisor_conf_tpl }}'
     dest: '{{ supervisor_config_dir }}/{{ program_name }}.conf'
+    mode: '{{ supervisor_manage_mode }}'
+    group: '{{ supervisor_manage_group }}'
   notify: reload app
   when: not supervisor_use_sudo
