@@ -6,7 +6,7 @@ http = {{ uwsgi_host }}:{{ uwsgi_port }}
 {% else %}
 socket = {{ uwsgi_host }}:{{ uwsgi_port }}
 {% endif %}
-uid = {{ user }}
+uid = {{ supervisor_user }}
 chdir = {{ app_path }}
 module = {{ wsgi_module }}
 home =  {{ app_path }}

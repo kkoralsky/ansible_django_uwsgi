@@ -2,7 +2,8 @@
 priority={{ priority }}
 command={{ venv_path }}/bin/uwsgi --ini {{ uwsgi_ini_path }}
 directory={{ app_path }}
-autostart=true
+autostart={% if supervisor_autostart|bool %}true{% else %}false{% endif %}
+
 autorestart=true
 startretries=3
 stdout_logfile={{ log_path }}/{{ program_name }}-out.log
@@ -11,5 +12,5 @@ stdout_logfile_backups={{ supervisor_log_backups }}
 stderr_logfile={{ log_path }}/{{ program_name }}-err.log
 stderr_logfile_maxbytes={{ supervisor_log_maxbytes }}
 stderr_logfile_backups={{ supervisor_log_backups }}
-user={{ user }}
+user={{ supervisor_user }}
 stopsignal={{ supervisor_stopsignal }}
